@@ -8,7 +8,7 @@ use HTML::Notebook;
 use HTML::Notebook::Cell;
 use HTML::Table;
 use HTML::Show;
-use Chart::Plotly;
+use Chart::Plotly::Plot;
 use Chart::Plotly::Trace::Scatter;
 use PDL;
 use PDL::Fit::Linfit;
@@ -24,7 +24,8 @@ $notebook->add_cell($text_cell);
 
 my $points = Chart::Plotly::Trace::Scatter->new(x => $x, y => $y, mode => 'markers', name => 'Observations');
 my $model = Chart::Plotly::Trace::Scatter->new(x => $x, y => $yfit, name => 'Model');
-my $chart_cell = HTML::Notebook::Cell->new( content => Chart::Plotly::render_full_html( data => [$points, $model] ) );
+my $plot = Chart::Plotly::Plot->new( traces => [$points, $model] );
+my $chart_cell = HTML::Notebook::Cell->new( content => $plot->html );
 $notebook->add_cell($chart_cell);
 
 my $table = HTML::Table->new(-class => "table table-striped table-hover", -head => ['', 'Observations', 'Model'],
