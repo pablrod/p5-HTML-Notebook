@@ -55,7 +55,7 @@ Render object to HTML
 
 # AUTHOR
 
-Pablo Rodr�guez Gonz�lez
+Pablo Rodríguez González
 
 # BUGS
 
@@ -63,7 +63,7 @@ Please report any bugs or feature requests via github: [https://github.com/pablr
 
 # LICENSE AND COPYRIGHT
 
-Copyright 2016 Pablo Rodr�guez Gonz�lez.
+Copyright 2016 Pablo Rodríguez González.
 
 The MIT License (MIT)
 
