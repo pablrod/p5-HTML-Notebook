@@ -5,6 +5,7 @@ use warnings;
 use utf8;
 
 use Moose;
+use UUID::Tiny ':std';
 use namespace::autoclean;
 
 =encoding utf-8
@@ -28,6 +29,11 @@ Notebook cell
 
 has 'content' => (
 	is => 'rw',
+);
+
+has 'id' => (
+	is => 'ro',
+	default => sub {return create_uuid_as_string(UUID_TIME)}
 );
 
 __PACKAGE__->meta()->make_immutable;

@@ -50,6 +50,7 @@ sub render {
     my $html   = <<'HTML';
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8" />
 <head>
 {$head}
 </head>
@@ -74,10 +75,9 @@ CELL
     my $body          = "";
     my $renderer      = Text::Template->new( TYPE => 'STRING', SOURCE => $html );
     my $cell_renderer = Text::Template->new( TYPE => 'STRING', SOURCE => $cell_template );
-    my $numeric_id    = 0;
     for my $cell ( @{ $self->cells } ) {
         $body .= $cell_renderer->fill_in(
-                                          HASH => { cell_id => 'cell_' . $numeric_id++,
+                                          HASH => { cell_id => $cell->id,
                                                     content => $cell->content
                                           }
         );
